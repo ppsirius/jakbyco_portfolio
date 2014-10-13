@@ -7,9 +7,16 @@
 	<meta name="author" content="Piotr Pupczyk" />
 	<meta name="keywords"  content="pile,piling,piling.js,stack,pages,scrolling,stacking,touch,fullpile,scroll,plugin,jquery" />
 
+
+	 <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="js/rollerblade.js"></script>
+   <link href="css/rollerblade.css" rel="stylesheet">
+
+
+
 	<link rel="stylesheet" type="text/css" href="css/jquery.pagepiling.css" />
 	<link rel="stylesheet" type="text/css" href="css/examples.css" />
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
 
 	<script type="text/javascript" src="js/jquery.pagepiling.min.js"></script>
 	<script type="text/javascript">
@@ -22,16 +29,23 @@
 			    	'position': 'right',
 			   		'tooltips': ['Page 1', 'Page 2', 'Page 3', 'Pgae 4']
 			   	},
-
 			   	afterRender: function(){
 					//playing the video
 					$('video').get(0).play();
-
-			   	
 				}
-
-				
 			});
+
+var arrayOfImages = [
+      'img/stopmotion2.jpg',
+      'img/stopmotion3.jpg',
+      'img/stopmotion4.jpg',
+      'img/stopmotion5.jpg',
+      'img/stopmotion6.jpg',
+    ]
+
+    $("#target").rollerblade({imageArray:arrayOfImages});
+
+
 	    });
     </script>
 
@@ -67,20 +81,40 @@
 			color: #fff;
 		}
 
+		/* --------------------------------------- */
+
+
+		#target img {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.rollerblade-img {
+    -moz-user-select: none;
+    cursor: move;
+    width: 100%;
+}
+
 
     </style>
 </head>
 <body>
 	<ul id="menu">
-		<li data-menuanchor="page1" class="active"><a href="#page1">Page 1</a></li>
-		<li data-menuanchor="page2"><a href="#page2">Page 2</a></li>
-		<li data-menuanchor="page3"><a href="#page3">Page 3</a></li>
+		<li data-menuanchor="page1"><a href="#page1">About</a></li>
+		<li data-menuanchor="page2"><a href="#page2">Portfolio</a></li>
+		<li data-menuanchor="page4"><a href="http://blog.jakbyco.com" target="_blank">Blog</a></li>
+		<li data-menuanchor="page3"><a href="#page3">Contact</a></li>
 	</ul>
 
 	<div id="pagepiling">
 	    <div class="section" id="section1">
-	    	<h1>About me</h1>
-			<p>Just override the `.pp-easing` class located in the CSS file.</p>
+	    	<div id="target">
+    <img class="rollerblade-img" src="img/stopmotion1.jpg">
+  
+</div>
+	    	
 			<br />
 	    </div>
 	    <div class="section" id="section2">
